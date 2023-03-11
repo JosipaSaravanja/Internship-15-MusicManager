@@ -25,15 +25,15 @@ function App() {
         }
         return 0;
       })
-      .sort((a, b) => b.releaseDate - a.releaseDate);
+      .sort((a, b) => b.releaseYear - a.releaseYear);
   };
 
   const removeAlbum = (id) => {
     setData((prev) => [...prev.filter((album) => album.id !== id)]);
-    setGlobalData([...data]);
+    setGlobalData((prev) => [...prev.filter((album) => album.id !== id)]);
   };
 
-  const addAlbum = (name, author, genre, releaseDate) => {
+  const addAlbum = (name, author, genre, releaseYear, releaseDate) => {
     if (data.length >= 10) {
       alert("Ne možete unijeti više od 10 albuma");
     } else {
@@ -44,13 +44,24 @@ function App() {
             name,
             author,
             genre,
-            new Date(releaseDate).getFullYear(),
+            releaseYear,
             new Date(releaseDate)
           ),
         ])
       );
+      setGlobalData((prev) =>
+      sortAlbums([
+        ...prev,
+        new newAlbum(
+          name,
+          author,
+          genre,
+          releaseYear,
+          new Date(releaseDate)
+        ),
+      ])
+    );
     }
-    setGlobalData([...data]);
   };
 
   const [data, setData] = React.useState(sortAlbums(albumsCollection));

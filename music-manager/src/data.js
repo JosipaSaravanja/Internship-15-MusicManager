@@ -12,18 +12,11 @@ export class newAlbum {
 }
 
 export const albumsCollection = [
-  /*
-new newAlbum("Meddle", "Pink Floyd", "Rock", 1971, new Date("1971-1-4")),
-new newAlbum("hi", "Pink Floyd", "Rock", 2023, new Date("2023-3-11")),
-new newAlbum("Remek Depo","Beograd (2) ", "Electronic", 1983, new Date("1983-1-1")),//nisam nasla datum*/
+  new newAlbum("Meddle", "Pink Floyd ", "Rock", 1971, new Date("1971-10-30")),
+  new newAlbum("Remek Depo", "Beograd (2)", "Electronic",1983, new Date("1983")),
+  new newAlbum("Kiša Metaka", "Kiša Metaka", "Hip Hop", 2022, new Date("2022-1-1")), 
+  new newAlbum("Arrival", "ABBA", "Pop", 1976, new Date("1976-10-11")),
+  new newAlbum("Paul Anka", "Paul Anka Sings His Big 15", "Pop", 1960, new Date("1960-10-11")),
+  new newAlbum("Without Fear", "Dermot Kennedy ", "Country", 2019, new Date("2019-11-04")),
 
-  new newAlbum("b", "b", "Rock", 8, new Date("2022-1-1")),
-  new newAlbum("a", "b", "Rock", 7, new Date("2022-1-1")),
-  new newAlbum("c", "a", "Rock", 6, new Date("2022-1-1")),
-  new newAlbum("c", "a", "rock", 5, new Date("2022-1-1")),
-
-  new newAlbum("b", "b", "Rock", 4, new Date("2023-1-1")),
-  new newAlbum("a", "b", "Rock", 3, new Date("2023-1-1")),
-  new newAlbum("e", "a", "Rock", 2, new Date("2023-1-1")),
-  new newAlbum("d", "a", "Rock", 1, new Date("2023-3-11")),
 ];

@@ -18,13 +18,14 @@ export const Filter = (props) => {
 
       <select className="selectFilter" onChange={(e)=>{setGenre(e.target.value)}}>
         <option value="" selected>
-          Odaberite žanr
+          Svi žanrovi
         </option>
         <option value="Pop">Pop</option>
         <option value="Techno">Techno</option>
         <option value="Rock">Rock</option>
         <option value="Jazz">Jazz</option>
         <option value="Electronic">Electronic</option>
+        <option value="Hip Hop">Hip Hop </option>
         <option value="Classical">Classical</option>
         <option value="Funk">Funk</option>
         <option value="Rap">Rap</option>
