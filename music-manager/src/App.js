@@ -59,7 +59,7 @@ function App() {
       setData(prev=>[...prev.filter(x => x.genre==genre)])
     }
     if(search){
-      setData(prev=>[...prev.filter(x => Object.values(x).includes(search))])
+      setData(prev=>[...prev.filter(x => x.name.includes(search) || x.author.includes(search))])
     }    
     console.log(data)
   }
