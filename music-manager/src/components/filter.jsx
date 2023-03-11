@@ -20,8 +20,3 @@ export const Filter = () => {
     </div>
   );
 };
-
-/*
-    5: "Techno",
-    6: "Country",
-    7: "Classical",*/

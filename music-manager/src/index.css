@@ -99,7 +99,7 @@ margin: 15px 0;
 .filter>*, .input>*{
   height: 30px
 }
-.filter :nth-child(2), .input :nth-child(2){
+.filter :not(:first-child, :last-child), .input :not(:first-child, :last-child){
   margin: auto 5px; 
 }
 
@@ -139,8 +139,11 @@ margin: 15px 0;
     flex-direction: column;
   }
 
-  .input > *, .filter >*{
+  .filter :not(:last-child), .input :not(:last-child){
     margin-bottom: 15px;
+  }
+  
+  .filter *, .input *{
     width: 100%;
   }
 }
