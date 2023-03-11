@@ -7,16 +7,17 @@ export const Filter = (props) => {
   const handleClick=()=>{
     if(!genre && !search){
       alert("Izaberite valjani filter")
-    } else{
+    } 
+    
       props.filterAlbums(genre, search)
-    }
+    
   }
   return (
     <div className="filter">
       <input className="unputFilter" onChange={(e)=>{setSearch(e.target.value)}} placeholder="Pretražite"/>
 
       <select className="selectFilter" onChange={(e)=>{setGenre(e.target.value)}}>
-        <option value="" disabled selected>
+        <option value="" selected>
           Odaberite žanr
         </option>
         <option value="Pop">Pop</option>
