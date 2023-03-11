@@ -5,7 +5,7 @@ export const Albums = (props) => {
     <div className="albums">
       {props.albums.map((data) => {
         return (
-          <Album data={data} key={data.id}>
+          <Album data={data} removeAlbum={props.removeAlbum}key={data.id}>
           </Album>
         );
       })}
