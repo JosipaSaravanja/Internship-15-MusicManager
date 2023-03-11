@@ -7,16 +7,20 @@ export const Input = (props) => {
   const [releaseDate, setReleseDate] = React.useState("");
 
   const handleClick=()=>{
-     
+     if(!name || !author || !genre || !releaseDate){
+      alert("Popunite podatke do kraja")
+     }else{
+      props.addAlbum(name, author, genre, releaseDate)
+     }
   }
 
   return (
     <div className="input">
-      <input className="name" placeholder="Name" onChange={e=>genre=e.target.name}></input>
-      <input className="author" placeholder="Author" onChange={e=>genre=e.target.author}></input>
-      <input className="date" placeholder="Release date yyyy-mm-dd" onChange={e=>genre=e.target.author}></input>
+      <input className="name" placeholder="Name" onChange={e=>setName(e.target.value)}></input>
+      <input className="author" placeholder="Author" onChange={e=>setAuthor(e.target.value)}></input>
+      <input className="date" placeholder="Release date yyyy-mm-dd" onChange={e=>setReleseDate(e.target.value)} type="date"></input>
       
-      <select onChange={e=>genre=e.target.value} className="selectInput">
+      <select onChange={e=>setGenre(e.target.value)} className="selectInput">
         <option value="" disabled selected>
           Odaberite žanr
         </option>

@@ -27,11 +27,10 @@ function App() {
 
   const removeAlbum=(id)=>{  
     setData(prev => [...prev.filter(album => album.id !== id)])
-    console.log(data)
   }
 
-  const addAlbum=()=>{
-
+  const addAlbum=(name, author, genre, releaseDate)=>{
+    setData(prev=>sortAlbums([...prev, new newAlbum(name, author, genre,  new Date(releaseDate).getFullYear(), new Date(releaseDate))]));
   }
   
   const [data, setData] = React.useState(sortAlbums(albumsCollection));
