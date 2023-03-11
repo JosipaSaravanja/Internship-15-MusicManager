@@ -29,6 +29,7 @@ export const Filter = (props) => {
         <option value="Classical">Classical</option>
         <option value="Funk">Funk</option>
         <option value="Rap">Rap</option>
+        <option value="Country">Country</option>
       </select>
       
       <button className="buttonFilter" onClick={()=>{handleClick()}}>Filtriraj</button>

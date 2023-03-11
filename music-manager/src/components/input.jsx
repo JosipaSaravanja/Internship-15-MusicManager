@@ -19,7 +19,7 @@ export const Input = (props) => {
     <div className="input">
       <input className="name" placeholder="Name" onChange={e=>setName(e.target.value)}></input>
       <input className="author" placeholder="Author" onChange={e=>setAuthor(e.target.value)}></input>
-      <input className="year" placeholder="Release year" onChange={e=>setReleaseYear(e.target.value)} type="date"></input>
+      <input className="year" placeholder="Release year" onChange={e=>setReleaseYear(e.target.value)} type="year"></input>
       <input className="date" placeholder="Release date yyyy-mm-dd" onChange={e=>setReleseDate(e.target.value)} type="date"></input>
       
       <select onChange={e=>setGenre(e.target.value)} className="selectInput">
@@ -35,6 +35,7 @@ export const Input = (props) => {
         <option value="Classical">Classical</option>
         <option value="Funk">Funk</option>
         <option value="Rap">Rap</option>
+        <option value="Country">Country</option>
       </select>
 
       <button onClick={()=>{handleClick()}}>Dodaj album</button>
