@@ -34,7 +34,7 @@ function App() {
   };
 
   const addAlbum = (name, author, genre, releaseDate) => {
-    if (data.lenght >= 10) {
+    if (data.length >= 10) {
       alert("Ne možete unijeti više od 10 albuma");
     } else {
       setData((prev) =>
@@ -54,13 +54,23 @@ function App() {
 
   const [data, setData] = React.useState(sortAlbums(albumsCollection));
 
+  const filterAlbums=(genre, search)=>{
+    if(genre){
+      setData(prev=>[...prev.filter(x => x.genre==genre)])
+    }
+    if(search){
+      setData(prev=>[...prev.filter(x => Object.values(x).includes(search))])
+    }    
+    console.log(data)
+  }
+
 console.log(data)
   return (
     <div className="App">
       <div className="content">
         <div className="inputAndFilter">
           <Input addAlbum={addAlbum}></Input>
-          <Filter></Filter>
+          <Filter filterAlbums={filterAlbums}></Filter>
         </div>
 
         <Albums removeAlbum={removeAlbum} albums={data}></Albums>

@@ -1,8 +1,21 @@
-export const Filter = () => {
+import React from "react";
+
+export const Filter = (props) => {
+  const [genre, setGenre]=React.useState("");
+  const [search, setSearch]=React.useState("");
+
+  const handleClick=()=>{
+    if(!genre && !search){
+      alert("Izaberite valjani filter")
+    } else{
+      props.filterAlbums(genre, search)
+    }
+  }
   return (
     <div className="filter">
-      <input className="unputFilter" placeholder="Pretražite"/>
-      <select className="selectFilter">
+      <input className="unputFilter" onChange={(e)=>{setSearch(e.target.value)}} placeholder="Pretražite"/>
+
+      <select className="selectFilter" onChange={(e)=>{setGenre(e.target.value)}}>
         <option value="" disabled selected>
           Odaberite žanr
         </option>
@@ -16,7 +29,7 @@ export const Filter = () => {
         <option value="Rap">Rap</option>
       </select>
       
-      <button className="buttonFilter">Filtriraj</button>
+      <button className="buttonFilter" onClick={()=>{handleClick()}}>Filtriraj</button>
     </div>
   );
 };
