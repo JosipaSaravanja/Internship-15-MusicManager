@@ -8,21 +8,25 @@ export const Input = (props) => {
   const [releaseDate, setReleseDate] = React.useState("");
 
   const handleClick=()=>{
-     if(!name || !author || !genre || !releaseDate){
+     if(!name || !author || !genre){
       alert("Popunite podatke do kraja")
      }else{
-      props.addAlbum(name, author, genre, releaseYear, releaseDate)
+      props.addAlbum(name, author, genre, releaseYear, new Date())
      }
+     setName("");
+     setAuthor("");
+     setReleaseYear("");
+     setReleseDate("");
+     setGenre("");
   }
 
   return (
     <div className="input">
-      <input className="name" placeholder="Name" onChange={e=>setName(e.target.value)}></input>
-      <input className="author" placeholder="Author" onChange={e=>setAuthor(e.target.value)}></input>
-      <input className="year" placeholder="Release year" onChange={e=>setReleaseYear(e.target.value)} type="year"></input>
-      <input className="date" placeholder="Release date yyyy-mm-dd" onChange={e=>setReleseDate(e.target.value)} type="date"></input>
+      <input className="name" value={name} placeholder="Name" onChange={e=>setName(e.target.value)}></input>
+      <input className="author" value={author} placeholder="Author" onChange={e=>setAuthor(e.target.value)}></input>
+      <input className="year" value={releaseYear} placeholder="Release year" onChange={e=>setReleaseYear(e.target.value)} type="number"></input>
       
-      <select onChange={e=>setGenre(e.target.value)} className="selectInput">
+      <select value={genre} onChange={e=>setGenre(e.target.value)} className="selectInput">
         <option value="" disabled selected>
           Odaberite žanr
         </option>

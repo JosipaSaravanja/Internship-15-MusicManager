@@ -12,13 +12,11 @@ export class newAlbum {
 }
 
 export const albumsCollection = [
-  new newAlbum("Meddle", "Pink Floyd ", "Rock", 1971, new Date("1971-10-30")),
-  new newAlbum("Remek Depo", "Beograd (2)", "Electronic",1983, new Date("1983")),
+  new newAlbum("Meddle", "Pink Floyd ", "Rock", 1971, new Date("2002-10-30")),
+  new newAlbum("Remek Depo", "Beograd (2)", "Electronic",1983, new Date("2023-12-01")),
   new newAlbum("Kiša Metaka", "Kiša Metaka", "Hip Hop", 2022, new Date("2022-1-1")), 
   new newAlbum("Arrival", "ABBA", "Pop", 1976, new Date("1976-10-11")),
-  new newAlbum("Paul Anka", "Paul Anka Sings His Big 15", "Pop", 1960, new Date("1960-10-11")),
-  new newAlbum("Without Fear", "Dermot Kennedy ", "Country", 2019, new Date("2019-11-04")),
-  new newAlbum("Without Fear", "Dermot Kennedy ", "Country", 2019, new Date("2019-11-04")),
-  new newAlbum("Without Fear", "Dermot Kennedy ", "Country", 2019, new Date("2019-11-04")),
+  new newAlbum("Paul Anka", "Paul Anka Sings His Big 15", "Pop", 1960, new Date("1998-10-11")),
+  new newAlbum("Without Fear", "Dermot Kennedy ", "Country", 2019, new Date("2018-11-04")),
 
 ];

@@ -22,8 +22,9 @@ export const Album = (props) => {
       <div>Name: {props.data.name}</div>
       <div>Author: {props.data.author}</div>
       <div>Genre: {props.data.genre}</div>
+      <div>Release year: {props.data.releaseYear}</div>
       <div>
-        Release date: {props.data.releaseDate.getFullYear()}-
+        Date: {props.data.releaseDate.getFullYear()}-
         {props.data.releaseDate.getMonth() + 1}-
         {props.data.releaseDate.getDate()}
       </div>
