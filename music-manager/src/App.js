@@ -29,7 +29,7 @@ function App() {
   };
 
   const removeAlbum = (id) => {
-    setData((prev) => [...prev.filter((album) => album.id !== id)]);
+    setData((prev) => [...prev.filter((album) => album.id !== id)])
     setGlobalData((prev) => [...prev.filter((album) => album.id !== id)]);
   };
 
@@ -78,7 +78,8 @@ function App() {
     }
 
     if(search){
-      setData(prev=>[...prev.filter(x => x.name.toLowerCase().includes(search.toLowerCase()) || x.author.toLowerCase().includes(search.toLowerCase()))])
+      console.log(search)
+      setData(prev=>[...prev.filter(x => x.name.toLowerCase().includes(search.toLowerCase()))])
     }
     
     console.log(globalData)
