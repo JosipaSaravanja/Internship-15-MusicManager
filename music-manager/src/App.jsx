@@ -28,22 +28,25 @@ export default function App() {
       .sort((a, b) => b.releaseYear - a.releaseYear);
   };
 
-  const addAlbum = (name, author, genre, releaseYear, releaseDate) => {
+  const addAlbum = (name, author, newgenre, releaseYear, releaseDate) => {
     if (globalData.length >= 10) {
       setLenghtError("visible")
       return;
     }
     setLenghtError("hidden");
-    setData((prev) =>
+
+    if(!genre && !search) { 
+      setData((prev) =>
       sortAlbums([
         ...prev,
-        new newAlbum(name, author, genre, releaseYear, new Date(releaseDate)),
+        new newAlbum(name, author, newgenre, releaseYear, new Date(releaseDate)),
       ])
     );
+    }
     setGlobalData((prev) =>
       sortAlbums([
         ...prev,
-        new newAlbum(name, author, genre, releaseYear, new Date(releaseDate)),
+        new newAlbum(name, author, newgenre, releaseYear, new Date(releaseDate)),
       ])
     );
   };
@@ -55,6 +58,10 @@ export default function App() {
 
   const filterAlbums = (genre, search) => {
     setData([...globalData]);
+    console.log(data)
+    setGenre(genre);
+    setSearch(search);
+
     if (genre) {
       setData((prev) => [...prev.filter((x) => x.genre == genre)]);
     }
@@ -70,6 +77,8 @@ export default function App() {
 
   const [inputError, setInputError] = React.useState("hidden");
   const [lenghtError, setLenghtError] = React.useState("hidden");
+  const [genre, setGenre] = React.useState("");
+  const [search, setSearch] = React.useState("");
 
   const [data, setData] = React.useState(sortAlbums(albumsCollection));
   const [globalData, setGlobalData] = React.useState(
