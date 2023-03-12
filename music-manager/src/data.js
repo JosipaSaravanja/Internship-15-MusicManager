@@ -17,9 +17,7 @@ export const albumsCollection = [
   new newAlbum("Kiša Metaka", "Kiša Metaka", "Hip Hop", 2022, new Date("2022-1-1")), 
   new newAlbum("Arrival", "ABBA", "Pop", 1976, new Date("1976-10-11")),
   new newAlbum("Paul Anka", "Paul Anka Sings His Big 15", "Pop", 1960, new Date("1998-10-11")),
-  new newAlbum("Without Fear", "Dermot Kennedy ", "Country", 2019, new Date("2018-11-04")),
-  new newAlbum("Kiša Metaka", "Kiša Metaka", "Hip Hop", 2022, new Date("2022-1-1")), 
-  new newAlbum("Arrival", "ABBA", "Pop", 1976, new Date("1976-10-11")),
-  new newAlbum("Paul Anka", "Paul Anka Sings His Big 15", "Pop", 1960, new Date("1998-10-11")),
-  new newAlbum("Without Fear", "Dermot Kennedy ", "Country", 2019, new Date("2018-11-04")),
+  new newAlbum("Without Fear", "Dermot Kennedy", "Country", 2019, new Date("2018-11-04")),
+  new newAlbum("Revolver", "The Beatles", "Pop", 1966, new Date("2003-11-10")),
+  new newAlbum("Rubber Soul", "The Beatles", "Rock", 1965, new Date("1976-09-10")),
 ];
