@@ -6,25 +6,45 @@ export const Input = (props) => {
   const [genre, setGenre] = React.useState("");
   const [releaseYear, setReleaseYear] = React.useState("");
 
-  const handleClick=()=>{
-     if(!name || !author || !genre){
-      alert("Popunite podatke do kraja")
-     }else{
-      props.addAlbum(name, author, genre, releaseYear, new Date())
-     }
-     setName("");
-     setAuthor("");
-     setReleaseYear("");
-     setGenre("");
-  }
+  const handleClick = () => {
+    if (!name || !author || !genre) {
+      props.error();
+      return;
+    }
+    props.removeError();
+    props.addAlbum(name, author, genre, releaseYear, new Date());
+    setName("");
+    setAuthor("");
+    setReleaseYear("");
+    setGenre("");
+  };
 
   return (
     <div className="input">
-      <input className="name" value={name} placeholder="Name" onChange={e=>setName(e.target.value)}></input>
-      <input className="author" value={author} placeholder="Author" onChange={e=>setAuthor(e.target.value)}></input>
-      <input className="year" value={releaseYear} placeholder="Release year" onChange={e=>setReleaseYear(e.target.value)} type="number"></input>
-      
-      <select value={genre} onChange={e=>setGenre(e.target.value)} className="selectInput">
+      <input
+        className="name"
+        value={name}
+        placeholder="Name"
+        onChange={(e) => setName(e.target.value)}></input>
+
+      <input
+        className="author"
+        value={author}
+        placeholder="Author"
+        onChange={(e) => setAuthor(e.target.value)}></input>
+
+      <input
+        className="year"
+        value={releaseYear}
+        placeholder="Release year"
+        onChange={(e) => setReleaseYear(e.target.value)}
+        type="number"></input>
+
+      <select
+        value={genre}
+        onChange={(e) => setGenre(e.target.value)}
+        className="selectInput">
+
         <option value="" disabled selected>
           Odaberite žanr
         </option>
@@ -40,7 +60,12 @@ export const Input = (props) => {
         <option value="Country">Country</option>
       </select>
 
-      <button onClick={()=>{handleClick()}}>Dodaj album</button>
+      <button
+        onClick={() => {
+          handleClick();
+        }}>
+        Dodaj album
+      </button>
     </div>
   );
 };

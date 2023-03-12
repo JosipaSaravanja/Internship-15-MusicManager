@@ -61,8 +61,6 @@ body {
     }
   }
 
-
-  
   .albumCard{
     box-shadow: 5px 10px 8px #888888;
     justify-content: space-between;
@@ -126,7 +124,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     padding: 5px;
-    margin: 15px 0;
+    margin: 5px 0;
   
   }
   
@@ -175,4 +173,15 @@ body {
     .filter *, .input *{
       width: 100%;
     }
+  }
+
+  .visible {
+    margin: 15px 0 0 0;
+    display: block;
+    color:red;
+    padding: 5px 0;
+    visibility: visible;
+  } 
+  .hidden {
+    visibility: hidden;
   }

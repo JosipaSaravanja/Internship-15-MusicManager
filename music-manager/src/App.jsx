@@ -5,9 +5,10 @@ import { newAlbum, albumsCollection } from "./data";
 import React from "react";
 
 export default function App() {
-  const sortAlbums = (array) => {//optimize???
+  const sortAlbums = (array) => {
     return array
-      .sort((a, b) => {/*(a.name > b.name) ? 1 : ((a.name < b.name) ? -1 : 0)*/
+      .sort((a, b) => {
+        /*(a.name > b.name) ? 1 : ((a.name < b.name) ? -1 : 0)*/
         if (a.name > b.name) {
           return 1;
         }
@@ -28,8 +29,14 @@ export default function App() {
       .sort((a, b) => b.releaseYear - a.releaseYear);
   };
 
+  const [errorVisiabilty, setErrorVisiabilty] = React.useState("hidden");
+  const [data, setData] = React.useState(sortAlbums(albumsCollection));
+  const [globalData, setGlobalData] = React.useState(
+    sortAlbums(albumsCollection)
+  );
+
   const removeAlbum = (id) => {
-    setData((prev) => [...prev.filter((album) => album.id !== id)])
+    setData((prev) => [...prev.filter((album) => album.id !== id)]);
     setGlobalData((prev) => [...prev.filter((album) => album.id !== id)]);
   };
 
@@ -40,63 +47,54 @@ export default function App() {
       setData((prev) =>
         sortAlbums([
           ...prev,
-          new newAlbum(
-            name,
-            author,
-            genre,
-            releaseYear,
-            new Date(releaseDate)
-          ),
+          new newAlbum(name, author, genre, releaseYear, new Date(releaseDate)),
         ])
       );
       setGlobalData((prev) =>
-      sortAlbums([
-        ...prev,
-        new newAlbum(
-          name,
-          author,
-          genre,
-          releaseYear,
-          new Date(releaseDate)
-        ),
-      ])
-    );
+        sortAlbums([
+          ...prev,
+          new newAlbum(name, author, genre, releaseYear, new Date(releaseDate)),
+        ])
+      );
     }
   };
 
-  const [data, setData] = React.useState(sortAlbums(albumsCollection));
-  const [globalData, setGlobalData] = React.useState(sortAlbums(albumsCollection));
+  const filterAlbums = (genre, search) => {
+    setData([...globalData]);
 
-  const filterAlbums=(genre, search)=>{
-    setData([...globalData])
-
-    if(!genre || !search){
-      setData([...globalData])
+    if (!genre || !search) {
+      setData([...globalData]);
     }
-    if(genre){
-      setData(prev=>[...prev.filter(x => x.genre==genre)])
+    if (genre) {
+      setData((prev) => [...prev.filter((x) => x.genre == genre)]);
     }
 
-    if(search){
-      console.log(search)
-      setData(prev=>[...prev.filter(x => x.name.toLowerCase().includes(search.toLowerCase()))])
+    if (search) {
+      setData((prev) => [
+        ...prev.filter((x) =>
+          x.name.toLowerCase().includes(search.toLowerCase())
+        ),
+      ]);
     }
-    
-    console.log(globalData)
-    console.log(data)
-
-  }
+  };
 
   return (
     <div className="App">
-        <div className="inputAndFilter">
-          <Input addAlbum={addAlbum}></Input>
-          <Filter filterAlbums={filterAlbums}></Filter>
-        </div>
-
-        <Albums removeAlbum={removeAlbum} albums={data}></Albums>
+      <div className={errorVisiabilty}>Unesite sve potrebne podatke</div>
+      <div className="inputAndFilter">
+        <Input
+          addAlbum={addAlbum}
+          error={() => {
+            setErrorVisiabilty("visible");
+          }}
+          removeError={() => {
+            setErrorVisiabilty("hidden");
+          }}>
+          Unesite sve podatke
+        </Input>
+        <Filter filterAlbums={filterAlbums}></Filter>
       </div>
+      <Albums removeAlbum={removeAlbum} albums={data}></Albums>
+    </div>
   );
 }
-
-
