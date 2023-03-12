@@ -5,7 +5,6 @@ export const Input = (props) => {
   const [author, setAuthor] = React.useState("");
   const [genre, setGenre] = React.useState("");
   const [releaseYear, setReleaseYear] = React.useState("");
-  const [releaseDate, setReleseDate] = React.useState("");
 
   const handleClick=()=>{
      if(!name || !author || !genre){
@@ -16,7 +15,6 @@ export const Input = (props) => {
      setName("");
      setAuthor("");
      setReleaseYear("");
-     setReleseDate("");
      setGenre("");
   }
 

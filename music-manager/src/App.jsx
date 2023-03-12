@@ -4,7 +4,7 @@ import { Albums } from "./components/albums";
 import { newAlbum, albumsCollection } from "./data";
 import React from "react";
 
-function App() {
+export default function App() {
   const sortAlbums = (array) => {//optimize???
     return array
       .sort((a, b) => {/*(a.name > b.name) ? 1 : ((a.name < b.name) ? -1 : 0)*/
@@ -89,7 +89,6 @@ function App() {
 
   return (
     <div className="App">
-      <div className="content">
         <div className="inputAndFilter">
           <Input addAlbum={addAlbum}></Input>
           <Filter filterAlbums={filterAlbums}></Filter>
@@ -97,8 +96,7 @@ function App() {
 
         <Albums removeAlbum={removeAlbum} albums={data}></Albums>
       </div>
-    </div>
   );
 }
 
-export default App;
+
