@@ -34,8 +34,15 @@ export default function App() {
       return;
     }
     setLenghtError("hidden");
+    
+    setGlobalData((prev) =>
+      sortAlbums([
+        ...prev,
+        new newAlbum(name, author, newgenre, releaseYear, new Date(releaseDate)),
+      ])
+    );
 
-    if(!genre && !search) { 
+    if((!genre || newgenre == genre) && name.toLowerCase().includes(search.toLowerCase())) { 
       setData((prev) =>
       sortAlbums([
         ...prev,
@@ -43,12 +50,6 @@ export default function App() {
       ])
     );
     }
-    setGlobalData((prev) =>
-      sortAlbums([
-        ...prev,
-        new newAlbum(name, author, newgenre, releaseYear, new Date(releaseDate)),
-      ])
-    );
   };
 
   const removeAlbum = (id) => {
