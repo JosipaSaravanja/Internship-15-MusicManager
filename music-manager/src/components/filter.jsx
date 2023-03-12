@@ -4,7 +4,7 @@ import { useEffect } from "react"
 export const Filter = (props) => {
   const [genre, setGenre]=React.useState("");
   const [search, setSearch]=React.useState("");
-  useEffect(()=>props.filterAlbums(genre, search), [search, genre])
+  useEffect(()=>props.filterAlbums(genre, search), [search, genre]);
 
   return (
     <div className="filter">
@@ -25,6 +25,6 @@ export const Filter = (props) => {
         <option value="Rap">Rap</option>
         <option value="Country">Country</option>
       </select>
-      </div>
+    </div>
   );
 };

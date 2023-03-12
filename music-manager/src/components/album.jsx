@@ -4,7 +4,7 @@ export const Album = (props) => {
       date1.getFullYear() == new Date().getFullYear() &&
       date1.getMonth() == new Date().getMonth() &&
       date1.getDate() == new Date().getDate()
-      )
+      );
   };
   return (
     <div
@@ -13,8 +13,8 @@ export const Album = (props) => {
         compareDates(props.data.releaseDate)
           ? { borderColor: "rgb(138 43 226)" }
           : { borderColor: "black" }
-      }
-    >
+      }>
+
       <div>Name: {props.data.name}</div>
       <div>Author: {props.data.author}</div>
       <div>Genre: {props.data.genre}</div>
@@ -24,7 +24,7 @@ export const Album = (props) => {
         {props.data.releaseDate.getMonth() + 1}. 
         {props.data.releaseDate.getDate()}.
       </div>
-      <button className="removeButton" onClick={()=>{props.removeAlbum(props.data.id)}}>Remove it!</button>
+      <button className="removeButton" onClick={()=>{props.removeAlbum(props.data.id)}}>Delete album!</button>
     </div>
   );
 };
